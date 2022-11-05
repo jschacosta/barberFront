@@ -25,6 +25,7 @@ export const authFackMethods = mapActions('authfack', ['login', 'registeruser', 
 
 export const notificationMethods = mapActions('notification', ['success', 'error', 'clear'])
 export const userMethods = mapActions('user', ['register'])
+export const serviceMethods = mapActions('service', ['createService','getAll'])
 
 export const todoComputed = {
   ...mapState('todo', {

@@ -82,6 +82,23 @@ export default [
     },
   },
   {
+    path: "/createWorker",
+    name: "createWorker",
+    component: () => import("./views/myComponents/contacts-list"),
+    meta: {
+      authRequired: false,
+    },
+  },
+  {
+    path: "/services",
+    name: "createService",
+    component: () => import("./views/myComponents/list"),
+    meta: {
+      authRequired: false,
+    },
+  },
+
+  {
     path: "/404",
     name: "404",
     component: require("./views/utility/404").default,
