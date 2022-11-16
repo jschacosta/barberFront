@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import api from '../lib/api';
 
 import modules from './modules'
 
