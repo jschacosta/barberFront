@@ -17,6 +17,7 @@ export const mutations = {
 export const actions = {
     createService({commit}, payload) {
         console.warn("creando servicio",payload)
+        let buena=commit
         return new Promise((resolve, reject) => {
             axios
                 .post(api + '/services', payload)

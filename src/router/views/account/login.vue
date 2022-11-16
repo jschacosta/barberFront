@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      registerUser: 'user/registerNewUser',
+      login: 'user/login',
       register: 'user/register',
 
     }),
@@ -69,7 +69,7 @@ export default {
           console.log("caso 2")
           const { email, password } = this;
           if (email && password) {
-            await this.register({
+            await this.login({
               email,
               password,
             });
