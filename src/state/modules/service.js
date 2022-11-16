@@ -1,5 +1,5 @@
 import axios from "axios";
-import api from '../../lib/ap.jsi'
+import api from '../../lib/api.js'
 // import store from '../../state/store'
 export const state = {
     services:[]
