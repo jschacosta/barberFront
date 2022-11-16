@@ -16,6 +16,7 @@ app.get('/', function (req, res) {
 });
 
 const port = process.env.PORT || 3000;
+const env = process.env.NODE_ENV || "";
 app.listen(port, function () {
-  console.log('BarberFront app listening on port ' + port);
+  console.log('BarberFront app listening on port ' + port + " env: " + env);
 });
