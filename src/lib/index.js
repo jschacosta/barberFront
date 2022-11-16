@@ -17,5 +17,6 @@ if (localStorage.getItem('apiUrl')) {
 }
 console.warn('env -> ', env)
 const api = apis.get(env.trim())
+console.log(api)
 
 export default api
