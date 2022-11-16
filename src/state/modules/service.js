@@ -1,7 +1,6 @@
 import axios from "axios";
-import api from '../../lib/index'
+import api from '../../lib/ap.jsi'
 // import store from '../../state/store'
-
 export const state = {
     services:[]
     
