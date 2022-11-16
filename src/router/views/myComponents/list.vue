@@ -682,7 +682,7 @@ export default {
     <!-- end row -->
 
     <!-- Modal de creación -->
-    <b-modal title="Add Task" v-model="showModal" hide-footer>
+    <b-modal title="Add Taskss" v-model="showModal" hide-footer>
               <form @submit.prevent="handleSubmit">
                 <div class="row">
                   <div class="col-12">
