@@ -4,7 +4,7 @@ import PageHeader from "@/components/page-header";
 import appConfig from "@/app.config";
 
 import { required } from "vuelidate/lib/validators";
-import { serviceMethods } from "@/state/helpers";
+import { serviceMethods, serviceGetters } from "@/state/helpers";
 
 /**
  * Invoice-list component
@@ -17,6 +17,7 @@ export default {
   components: { Layout, PageHeader },
   data() {
     return {
+      services:[],
       title: "Servicios",
       showModal: false,
       taskList: {
@@ -42,7 +43,14 @@ export default {
       submitted: false,
     };
   },
-  created(){},
+  computed:{
+    ...serviceGetters,
+  },
+  async created (){
+    let send = 'isActive=true&page=1&limit=54'
+    await this.getAllServices(send)
+    this.services=this.getServices
+  },
   methods: {
     ...serviceMethods,
     handleSubmit() {
@@ -76,41 +84,14 @@ export default {
         </b-button>
       </div>
     </div>
+    {{services}}
     <div class="row">
       <div class="col-xl-4 col-sm-6">
         <div class="card">
           <div class="card-body">
             <div class="row">
-              <div class="col-lg-4">
-                <div class="text-lg-center">
-                  <div
-                    class="
-                      avatar-sm
-                      me-3
-                      mx-lg-auto
-                      mb-3
-                      mt-1
-                      float-start float-lg-none
-                    "
-                  >
-                    <span
-                      class="
-                        avatar-title
-                        rounded-circle
-                        bg-primary bg-soft
-                        text-primary
-                        font-size-16
-                      "
-                    >
-                      M
-                    </span>
-                  </div>
-                  <h5 class="mb-1 font-size-15 text-truncate">Marion Burton</h5>
-                  <a href="#" class="text-muted">@Skote</a>
-                </div>
-              </div>
 
-              <div class="col-lg-8">
+              <div class="text-center">
                 <div>
                   <router-link
                     to="/invoices/detail"
@@ -682,7 +663,7 @@ export default {
     <!-- end row -->
 
     <!-- Modal de creación -->
-    <b-modal title="Add Taskss" v-model="showModal" hide-footer>
+    <b-modal title="Crear servicio" v-model="showModal" hide-footer>
               <form @submit.prevent="handleSubmit">
                 <div class="row">
                   <div class="col-12">

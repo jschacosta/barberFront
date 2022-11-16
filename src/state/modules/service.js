@@ -3,31 +3,52 @@ import api from '../../lib/index'
 // import store from '../../state/store'
 
 export const state = {
+    services:[]
     
 };
 
 export const getters = {
- 
+    getServices: state => state.services,
 };
 
 export const mutations = {
+    SET_SERVICES(state, payload) {
+        console.log("SET_SERVICES", payload)
+        state.services = payload 
+    },
     
 };
 
 export const actions = {
     createService({commit}, payload) {
         console.warn("creando servicio",payload)
-        let buena=commit
         return new Promise((resolve, reject) => {
             axios
                 .post(api + '/services', payload)
                 .then(res => {
-                        console.log("buena 1") 
+                        console.log("exitoS1") 
                         console.warn("servicio", res.data)
                         resolve(res.data)
                 })
                 .catch(err => {
-                    console.log("buena3")
+                    console.log("errorS1")
+                    console.warn(err.response)
+                    reject(err)
+                })
+        })
+    },
+    getAllServices({commit}, payload) {
+        console.warn("obteniendo todos los servicios",payload)
+        return new Promise((resolve, reject) => {
+            axios
+                .get(api + '/services/allServices/body?'+ payload)
+                .then(res => {
+                        console.log("exitoS2") 
+                        commit('SET_SERVICES', res.data.docs)
+                        resolve(res.data)
+                })
+                .catch(err => {
+                    console.log("errorS2")
                     console.warn(err.response.data)
                     reject(err)
                 })
