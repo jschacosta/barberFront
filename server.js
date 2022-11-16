@@ -15,6 +15,7 @@ app.get('/', function (req, res) {
   res.render(path.join(__dirname + '/dist/index.html'));
 });
 
-app.listen(4000, function () {
-  console.log('Example app listening on port 3000!');
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log('BarberFront app listening on port ' + port);
 });
