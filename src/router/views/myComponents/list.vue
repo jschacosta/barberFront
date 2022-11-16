@@ -102,7 +102,7 @@ export default {
                     class="d-block text-primary text-decoration-underline mb-2"
                     >Id # {{item._id}}</router-link
                   >
-                  <h5 class="text-truncate mb-4 mb-lg-5">S{{item.name}}</h5>
+                  <h5 class="text-truncate mb-4 mb-lg-5">{{item.name}}</h5>
                   <ul class="list-inline mb-0">
                     <li class="list-inline-item me-3">
                       <h5

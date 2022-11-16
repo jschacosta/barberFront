@@ -16,6 +16,10 @@ export const mutations = {
         console.log("SET_SERVICES", payload)
         state.services = payload 
     },
+    UPDATE_SERVICE(state,payload){
+        console.log("update service", payload)
+        state.services.unshift(payload )
+    }
     
 };
 
@@ -26,9 +30,10 @@ export const actions = {
             axios
                 .post(api + '/services', payload)
                 .then(res => {
-                        console.log("exitoS1") 
-                        console.warn("servicio", res.data)
-                        resolve(res.data)
+                    console.log("exitoS1") 
+                    console.warn("servicio", res.data)
+                    commit('UPDATE_SERVICE', res.data)
+                    resolve(res.data)
                 })
                 .catch(err => {
                     console.log("errorS1")
@@ -43,9 +48,9 @@ export const actions = {
             axios
                 .get(api + '/services/allServices/body?'+ payload)
                 .then(res => {
-                        console.log("exitoS2") 
-                        commit('SET_SERVICES', res.data.docs)
-                        resolve(res.data)
+                    console.log("exitoS2") 
+                    commit('SET_SERVICES', res.data.docs)
+                    resolve(res.data)
                 })
                 .catch(err => {
                     console.log("errorS2")
