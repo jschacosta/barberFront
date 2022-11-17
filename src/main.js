@@ -10,7 +10,6 @@ import router from './router/index'
 import Scrollspy from 'vue2-scrollspy';
 import VueSweetalert2 from 'vue-sweetalert2';
 import axios from "axios";
-// import axios from 'axios';
 
 
 import "../src/design/app.scss";
@@ -63,6 +62,21 @@ Vue.use(VueGoogleMaps, {
   },
   installComponents: true
 })
+
+axios.defaults.headers.common = {
+  'Access-Control-Allow-Origin': '*',
+  "Access-Control-Allow-Headers":  'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method',
+  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE',
+  'Allow': 'GET, POST, OPTIONS, PUT, DELETE',
+  'Content-Type': 'application/json;charset=UTF-8'
+};
+
+// axios.defaults.headers='Access-Control-Allow-Origin', '*'
+// axios.defaults.headers='Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method'
+// axios.defaults.headers='Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE'
+// axios.defaults.headers='Allow', 'GET, POST, OPTIONS, PUT, DELETE'
+console.log(axios.defaults)
+
 
 
 const access_token = localStorage.getItem('access_token');

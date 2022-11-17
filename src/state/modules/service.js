@@ -53,7 +53,7 @@ export const actions = {
                 })
                 .catch(err => {
                     console.log("errorS2")
-                    console.warn(err.response.data)
+                    console.warn(err)
                     reject(err)
                 })
         })
