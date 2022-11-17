@@ -90,15 +90,19 @@ axios.interceptors.response.use(
   },
   error => {
     // CHEQUEA LOS STATUS DE ERROR
+    console.log("hay error")
     console.log(error)
     if (error.response.status != 401) {
+      console.log("hay error1")
       return new Promise((resolve, reject) => {
         reject(error);
       });
     } else {
+      console.log("hay error2")
       store.dispatch('users/refreshToken', {
         refresh_token: localStorage.getItem('refresh_token')
       }).then(res => {
+        console.log("hay error4")
         localStorage.setItem('access_token', res.access_token);
         window.location.href = window.location.origin + '/';
       });
